@@ -1,0 +1,6 @@
+{
+  "name": "Kalkulyator",
+  "description": "Redmi (MIUI/HyperOS) telefonlari uchun Kalkulyator niqobi ostida ilovalarni asosiy ekrandan yashirish (App Hider) va ishlatilgan vaqt statistikasini o'chirish bo'yicha simulyator hamda amaliy qo'llanma.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
