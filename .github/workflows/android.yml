@@ -33,31 +33,7 @@ jobs:
 
       - name: Sync Capacitor
         run: |
-          if [ ! -d "android" ]; then
-            npx cap add android
-          fi
           npx cap sync android
-
-      - name: Configure App Name and Icon
-        run: |
-          # 1. Set app name to Kalkulyator in Android resources
-          sed -i 's/<string name="app_name">.*<\/string>/<string name="app_name">Kalkulyator<\/string>/g' android/app/src/main/res/values/strings.xml || true
-          sed -i 's/Capacitor App/Kalkulyator/g' android/app/src/main/res/values/strings.xml || true
-          sed -i 's/My App/Kalkulyator/g' android/app/src/main/res/values/strings.xml || true
-          
-          # 2. Download custom icon
-          curl -sL "https://lh5.ggpht.com/XJIPVm71Icy7mlESQeMie6XY2PEG7p2YE3hERXBu2ZLI78cGjWSjsUp-q0aUiQ4QrUg=w300" -o custom_icon.png
-          
-          # 3. Replace all mipmap png launcher icons
-          for dir in hdpi mdpi xhdpi xxhdpi xxxhdpi; do
-            mkdir -p android/app/src/main/res/mipmap-${dir}
-            cp custom_icon.png android/app/src/main/res/mipmap-${dir}/ic_launcher.png
-            cp custom_icon.png android/app/src/main/res/mipmap-${dir}/ic_launcher_round.png
-          done
-          
-          # 4. Remove adaptive XML launcher icons to force using our PNG icons on all launchers
-          rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
-          rm -f android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml
 
       - name: Build Android APK
         run: |
