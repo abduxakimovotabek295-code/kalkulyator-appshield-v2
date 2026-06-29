@@ -32,7 +32,7 @@ jobs:
         run: npm run build
 
       - name: Prepare Android Project
-        run: node scripts/prepare-android.js
+        run: node scripts/prepare-android.cjs
 
       - name: Sync Capacitor
         run: npx cap sync android
